@@ -56,6 +56,8 @@ extension NSColor
     // ------------------------------------------------------------------------------------------
     class func colorWithIntegerHexValue(hexValueAsInt: uint) -> NSColor {
     
+        if hexValueAsInt == 0 { return NSColor.blackColor()}
+        
         let digitCount:NSInteger = NSInteger((log10(Double(hexValueAsInt)) + 1))
         
         let alpha = ((digitCount == 10) ? (((CGFloat)((hexValueAsInt & 0xFF000000) >> 24)) / 255.0) : 1.0)
